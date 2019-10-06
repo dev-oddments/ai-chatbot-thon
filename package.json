@@ -1,8 +1,8 @@
 {
-  "name": "dialogflow-web-v2",
-  "description": "Dialogflow unofficial Progressive Web App",
-  "version": "2.6.1",
-  "author": "MishUshakov",
+  "name": "ai-chatbot-thon",
+  "description": "2019-10-09",
+  "version": "0.0.1",
+  "author": "Yonajae Yi",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
