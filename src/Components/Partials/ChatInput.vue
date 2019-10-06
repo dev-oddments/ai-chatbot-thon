@@ -1,6 +1,6 @@
 <template>
     <div class="bottomchat">
-        <div class="container">
+        <div class="container" >
             <!-- Here are the suggestions -->
             <div class="suggestions">
                 <slot></slot>
@@ -15,7 +15,7 @@
                 <!-- Send message button (arrow button) -->
                 <div :aria-label="(config.i18n[lang()] && config.i18n[lang()].sendTitle) || config.i18n[config.app.fallback_lang].sendTitle" :title="(config.i18n[lang()] && config.i18n[lang()].sendTitle) || config.i18n[config.app.fallback_lang].sendTitle" class="button-container"
                     v-if="!micro && query.length > 0" @click="submit()">
-                    <i class="material-icons" aria-hidden="true">arrow_upward</i>
+                    <i class="material-icons" aria-hidden="true">send</i>
                 </div>
     
                 <!-- Microphone Button -->
@@ -35,9 +35,12 @@
     left: 0
     width: 100%
     background-color: var(--background)
+    border-top: 1px solid rgb(221,221,221);
+    border-radius: 0px 0px 25px 25px
 
 .flexible
     display: flex
+    
 
 .suggestions
     overflow-x: scroll
@@ -50,15 +53,14 @@
 
 .input-container
     width: 100%
-    padding: 8px
     box-sizing: border-box
-    border-radius: 40px
     flex: 1 0 0
-    background-color: var(--element-background)
+    background-color: transparent
+    
 
 .input
-    font-size: 16px
-    font-weight: 500
+    font-size: 25px
+    font-weight: 200
     width: 100%
     box-sizing: border-box
     background-color: transparent
@@ -66,7 +68,7 @@
     outline: none
     padding-left: 8px
     padding-right: 8px
-    color: var(--text)
+    color: black
 
 .button-container
     padding: 8px
@@ -75,8 +77,8 @@
     margin-left: 6px
     border-radius: 50%
     cursor: pointer
-    background-color: black
-    color: white
+    background-color: transparent
+    color: rgb(221,221,221)
 
     &.mic_button
         background-color: var(--element-background)
@@ -133,12 +135,20 @@ export default {
         submit() {
             Vue.nextTick(function() {
                 var div = document.getElementById("chatArea");
-                div.scrollTop = div.scrollHeight;
+                div.scrollTop = div.scrollHeight - 200;
+
             });
             if (this.query.length > 0) {
                 this.$emit('submit', this.query)
                 this.query = ''
             }
+                        this.scroll();
+
+        },
+        scroll() {
+            document.getElementById('chatArea').scrollTop = document.getElementById('cont').scrollHeight;
+        },
+        updated() {
         }
     }
 }

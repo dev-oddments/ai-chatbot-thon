@@ -12,7 +12,7 @@ export default {
         ko: {
             welcomeTitle: "환영합니다.",
             muteTitle: "음소거",
-            inputTitle: "메시지를 입력하세요",
+            inputTitle: "무엇이든 물어보세요!",
             sendTitle: "보내기",
             microphoneTitle: "음성인식"
         },
