@@ -1,8 +1,7 @@
 <template>
     <main>
         <div id="chatArea" style="overflow:auto; overflow-wrap: break-word;    display: inline-block; word-wrap: break-word;width: 600px; height: 700px">
-    
-            <!-- TopHead is the header with the information about the app -->
+          <!-- TopHead is the header with the information about the app -->
             <TopHead v-if="app && messages.length > 0" :app="app"></TopHead>
     
             <section class="container chat-container">
@@ -110,7 +109,7 @@
                         </div>
     
                     </table>
-                    <table class="message" v-if="loading">
+                    <table style="padding-bottom:0px" class="message" v-if="loading">
                         <tr>
                             <!-- My message (Loading) -->
                             <td>
@@ -127,6 +126,7 @@
                 </section>
             </section>
         </div>
+        
     
         <!-- ChatInput is made for submitting queries and displaying suggestions -->
         <ChatInput @submit="send">
@@ -145,58 +145,12 @@
         </ChatInput>
     
         <!-- Audio toggle (on the top right corner), used to toggle the audio output, default mode is defined in the settings -->
-    
+
     </main>
+
 </template>
 
-<style lang="sass">
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700')
-@import url('https://fonts.googleapis.com/css?family=Material+Icons')
 
-body
-    margin: 0
-    padding: 0
-    font-family: Google Sans, Roboto, sans-serif
-    font-display: swap
-    background-color: var(--background)
-
-.container
-    max-width: 500px
-    margin-left: auto
-    margin-right: auto
-    padding: 16px
-    position: relative
-</style>
-
-<style lang="sass" scoped>
-.chat-container
-    padding-top: 60px
-    padding-bottom: 125px
-
-.message
-    width: 100%
-    table-layout: fixed
-
-    .component
-        padding-bottom: 10px
-        display: block
-        @media screen and (max-width: 720px)
-            width: 100%
-
-.audio-toggle
-    position: fixed
-    top: 0
-    right: 0
-    margin: 8px
-    z-index: 999
-    padding: 10px
-    background-color: var(--element-background)
-    border-radius: 50%
-    width: 24px
-    height: 24px
-    cursor: pointer
-    color: var(--text)
-</style>
 
 <script>
 import Welcome from './../Welcome/Welcome.vue'
@@ -379,7 +333,61 @@ export default {
             /* This "hack" is used to format our lang format, to some other lang format (example: en -> en_EN). Mainly for Safari, Firefox and Edge */
             speech.lang = this.lang() + '-' + this.lang().toUpperCase()
             if (!this.muted) window.speechSynthesis.speak(speech) // <- if app is not muted, speak out the speech
+
+            this.$nextTick(() => {
+                var div = document.getElementById("chatArea");
+                div.scrollTop = (div.scrollHeight);
+            })
         }
     }
 }
 </script>
+
+<style lang="sass">
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700')
+@import url('https://fonts.googleapis.com/css?family=Material+Icons')
+
+body
+    margin: 0
+    padding: 0
+    font-family: Google Sans, Roboto, sans-serif
+    font-display: swap
+    background-color: var(--background)
+
+.container
+    max-width: 500px
+    margin-left: auto
+    margin-right: auto
+    padding: 16px
+    position: relative
+</style>
+
+<style lang="sass" scoped>
+.chat-container
+    padding-top: 5px
+    padding-bottom: 5px
+
+.message
+    width: 100%
+    table-layout: fixed
+
+    .component
+        padding-bottom: 10px
+        display: block
+        @media screen and (max-width: 720px)
+            width: 100%
+
+.audio-toggle
+    position: fixed
+    top: 0
+    right: 0
+    margin: 8px
+    z-index: 999
+    padding: 10px
+    background-color: var(--element-background)
+    border-radius: 50%
+    width: 24px
+    height: 24px
+    cursor: pointer
+    color: var(--text)
+</style>

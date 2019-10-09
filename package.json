@@ -13,6 +13,7 @@
     "langs": "^2.0.0",
     "uuid": "^3.3.2",
     "vue": "^2.5.21",
+    "vue-scrollto": "^2.17.1",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {

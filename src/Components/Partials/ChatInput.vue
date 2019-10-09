@@ -91,10 +91,13 @@
 </style>
 
 <script>
-import Vue from 'vue'
-
 export default {
     name: 'ChatInput',
+    methods: {
+        scroll() {
+            const cancelScroll = VueScrollTo.scrollTop("#test");
+        }
+    },
     data() {
         return {
             query: '',
@@ -133,23 +136,23 @@ export default {
     },
     methods: {
         submit() {
-            Vue.nextTick(function() {
-                var div = document.getElementById("chatArea");
-                div.scrollTop = div.scrollHeight - 200;
-
-            });
             if (this.query.length > 0) {
                 this.$emit('submit', this.query)
                 this.query = ''
             }
-                        this.scroll();
+
+            this.$nextTick(function() {
+
+                var div = document.getElementById("chatArea");
+                div.scrollTop = (div.scrollHeight);
+
+            });
 
         },
-        scroll() {
-            document.getElementById('chatArea').scrollTop = document.getElementById('cont').scrollHeight;
-        },
-        updated() {
-        }
+          updated() {
+
+    }
+
     }
 }
 </script>

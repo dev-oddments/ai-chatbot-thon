@@ -3,7 +3,7 @@ import 'whatwg-fetch' // <- Fetch API Polyfill
 
 import Vue from 'vue'
 import App from './Components/App/App.vue'
-
+import VueScrollTo from 'vue-scrollto'
 import config from './../config'
 import { register_service_worker } from './utils'
 
@@ -31,6 +31,7 @@ Vue.prototype.lang = () => {
         return config.app.fallback_lang
     }
 }
+Vue.use(VueScrollTo)
 
 new Vue({
     el: '#app',
