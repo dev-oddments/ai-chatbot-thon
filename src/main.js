@@ -6,6 +6,12 @@ import App from './Components/App/App.vue'
 import VueScrollTo from 'vue-scrollto'
 import config from './../config'
 import { register_service_worker } from './utils'
+import Amplify, * as AmplifyModules from 'aws-amplify'
+import { AmplifyPlugin } from 'aws-amplify-vue'
+import awsconfig from './aws-exports'
+Amplify.configure(awsconfig)
+
+Vue.use(AmplifyPlugin, AmplifyModules)
 
 register_service_worker() // <- register service worker, disable it, when running in development mode
 

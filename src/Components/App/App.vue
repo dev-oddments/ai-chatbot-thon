@@ -21,7 +21,8 @@
 
 <script>
     import Chatting from './Chatting.vue'
-            
+    import { components } from 'aws-amplify-vue'
+
     export default {
         name: 'App',
         components: {
