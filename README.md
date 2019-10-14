@@ -1,7 +1,7 @@
 # 2019 서울 인공지능 챗봇톤 - [[link](https://www.ai-lab.kr/post/2019-chatbothon)] [[발표자료](https://docs.google.com/presentation/d/1WWwFOE-6w_0H8LiiOYaRa6_OUF1am0VseD3L3GtZiIQ/edit#slide=id.p)] 
 > `2019. 10. 09 / 9:00 ~ 21:00 / 서울창업허브 대강당`
 
-[Demo](https://onele-dev-5.firebaseapp.com)
+## [Demo](https://onele-dev-5.firebaseapp.com)
 
 ## 0. 팀원
 - 이철수
@@ -18,14 +18,13 @@
 ![](src/assets/usage.gif)
 1. 상담 주제와 관련된 문서 다운로드 기능
 2. 딥러닝 기반의 형태소 분석으로 성능 개선
-  - ETRI의 언어모델(KorBERT) 사용하여 구글 언어모델보다 우수한 성능 확보
-  - 카카오 Khaii를 이용해 Dialogflow 학습방식 개선(T-Score:97.11%)
+  - 카카오 Khaii(T-Score:97.11%)와 ETRI의 엑소브레인을 이용해 Dialogflow 학습방식 개선
 3. 120 콜센터 주요질의를 정확히 판단 후 응대
 4. 챗봇 접근성과 사용성 개선
   - 다양한 구어체 인식
   - 음성인식 기능
   - 응답 결과에 대한 TTS 제공
-  - -> 시용성의 증가로 이어질 수 있음!
+  - 시용성의 증가로 이어질 수 있음!
     - 반복질문에 대한 답변이 가능함으로 콜센터 응대 채널 분산
 - `친근함`, `접근성`, `정확함`, `용이성`, `깔끔함`, `쉬움`
 
